@@ -16,7 +16,7 @@ class Blockchain():
 
 
 def main():
-    block = Block("My name is Matthew Williams", 25)
+    block_1 = Block("My name is Matthew Williams", 25)
 
 
 if __name__ == "__main__":
