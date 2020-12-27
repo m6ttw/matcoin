@@ -10,6 +10,14 @@ class Block():
         self.data = data
         self.number = number
 
+    def hash(self):
+        return update_hash(
+            self.previous_hash,
+            self.number,
+            self.data,
+            self.nonce
+        )
+
 
 class Blockchain():
     pass
