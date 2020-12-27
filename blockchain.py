@@ -8,7 +8,6 @@ def update_hash(*args):
     h.update(hashing_text.encode("utf-8"))
     return h.hexdigest()
 
-print(update_hash("hello"))
 
 class Block():
     data = None
@@ -28,13 +27,17 @@ class Block():
             self.nonce
         )
 
+    def __str__(self):
+        return str("Block#: %s\nHash#: %s\nPrevious#: %s\nData#: %s\nNonce#: %s\n" %(self.number, self.hash(), self.previous_hash, self.data, self.nonce))
+
 
 class Blockchain():
     pass
 
 
 def main():
-    block_1 = Block("My name is Matthew Williams", 25)
+    block_1 = Block("My name is Matthew Williams", 1)
+    print(block_1)
 
 
 if __name__ == "__main__":
