@@ -54,10 +54,31 @@ class Blockchain():
             }
         )
 
+    def mine(self, block):
+        try:
+            block.previous_hash = self.chain[-1].get("hash")
+        except IndexError:
+            pass
+
+        while True:
+            if block.hash()[:4] == "0" * self.difficulty:
+                self.add(block); break
+            else:
+                block.nonce += 1
+
 
 def main():
-    block_1 = Block("My name is Matthew Williams", 1)
-    print(block_1)
+    blockchain = Blockchain()
+    database = ["Matt", "25", "hello"]
+
+    num = 0
+    for data in database:
+        num += 1
+        blockchain.mine(Block(data, num))
+
+    print(blockchain.chain)
+    for block in blockchain.chain:
+        print(block)
 
 
 if __name__ == "__main__":
