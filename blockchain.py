@@ -1,5 +1,11 @@
 from hashlib import sha256
 
+def update_hash(*args):
+    for arg in args:
+        print(arg)
+
+update_hash("apple", "banana", "carrot")
+
 class Block():
     data = None
     hash = None
