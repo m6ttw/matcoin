@@ -16,7 +16,7 @@ class Blockchain():
 
 
 def main():
-    pass
+    block = Block("My name is Matthew Williams", 25)
 
 
 if __name__ == "__main__":
