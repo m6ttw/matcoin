@@ -1,10 +1,14 @@
 from hashlib import sha256
 
 def update_hash(*args):
+    hashing_text = ""; h = sha256()
     for arg in args:
-        print(arg)
+        hashing_text += str(arg)
 
-update_hash("apple", "banana", "carrot")
+    h.update(hashing_text.encode("utf-8"))
+    return h.hexdigest()
+
+print(update_hash("hello"))
 
 class Block():
     data = None
