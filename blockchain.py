@@ -32,7 +32,10 @@ class Block():
 
 
 class Blockchain():
-    pass
+    difficulty = 4
+
+    def __init__(self, chain=[]):
+        self.chain = chain
 
 
 def main():
