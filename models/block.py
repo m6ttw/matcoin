@@ -1,12 +1,13 @@
 from hashlib import sha256
+#'secure hash algorithm 256' - transforms data into indecipherable hash value
 
-def update_hash(*args):
-    hashing_text = ""; h = sha256()
+def update_hash(*args): #*args allows you to pass a varying number of positional arguments
+    text_to_hash = ""; h = sha256()
     for arg in args:
-        hashing_text += str(arg)
+        text_to_hash += str(arg)
 
-    h.update(hashing_text.encode("utf-8"))
-    return h.hexdigest()
+    h.update(text_to_hash.encode("utf-8"))
+    return h.hexdigest() #returns encoded data in hexadecimal format
 
 
 class Block():
@@ -28,14 +29,16 @@ class Block():
         )
 
     def __str__(self):
-        return str("Block#: %s\n" +
-        "Hash#: %s\n" +
-        "Previous#: %s\n" +
-        "Data#: %s\n" +
-        "Nonce#: %s\n" %(
-            self.number,
-            self.hash(),
-            self.previous_hash,
-            self.data,
-            self.nonce
-        ))
+        return str(
+            "Block#: %s\n" +
+            "Hash#: %s\n" +
+            "Previous#: %s\n" +
+            "Data#: %s\n" +
+            "Nonce#: %s\n" %(
+                self.number,
+                self.hash(),
+                self.previous_hash,
+                self.data,
+                self.nonce
+            )
+        )
